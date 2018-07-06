@@ -1,0 +1,430 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title> Notes Gallery</title>
+<meta name="keywords" content="notesgallery iitk,vimalk iitk">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>  
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<script src="http://anijs.github.io/lib/anijs/anijs-min.js"></script>
+ <script src="http://anijs.github.io/lib/anijs/helpers/dom/anijs-helper-dom-min.js"></script>
+ <link rel="stylesheet145" href="http://anijs.github.io/lib/anicollection/anicollection.css">
+
+
+<style>
+.hvr-underline-from-center
+          {display:inline-block;
+		    vertical-align:middle;
+			-webkit-transform:translateZ(0);
+			transform:translateZ(0);
+			box-shadow:0 0 1px rgba(0,0,0,0);
+			-webkit-backface-visibility:hidden;
+			backface-visibility:hidden;
+			-moz-osx-font-smoothing:grayscale;
+			position:relative;
+			overflow:hidden}
+.hvr-underline-from-center:before{content:"";
+                              position:absolute;
+							  z-index:-1;left:50%;right:50%;bottom:0;
+							  background:black;
+							  height:4px;
+							  -webkit-transition-property:left,right;
+							  transition-property:left,right;
+							  -webkit-transition-duration:.3s;
+							  transition-duration:.3s;
+							  -webkit-transition-timing-function:ease-out;
+							  transition-timing-function:ease-out}
+.hvr-underline-from-center:active:before,.hvr-underline-from-center:focus:before,.hvr-underline-from-center:hover:before{left:0;right:0}
+
+#au,#st:hover { cursor:pointer;}
+#fb,#twitter,#gp {color:black; }
+#fb:hover {color:#3b5998;}
+#gp:hover {color:#dd4b39}
+#twitter:hover {color:#0084b4}
+#fi,#gi,#ti { transition-duration : 0.3s}
+body {
+             background-image:url("bg12.jpg");
+            background-repeat : no-repeat;background-size: cover;
+         }
+@font-face {
+                            font-family : myfont;
+                            src:url("Antihistory.ttf");
+                     }
+@font-face {
+                          font-family: myfont1;
+                          src:url("Action.ttf");
+                        }
+@font-face {
+                          font-family: myfont2;
+                          src:url("BerthamBold.ttf");
+                        }
+@font-face {
+                          font-family: myfont3;
+                          src:url("ACharmingFontExpanded.ttf");
+                        }
+#asp {         background-color:#52D5F5;}
+
+
+@keyframes myframe {
+            from { opacity : 0 ; transform:translateY(70%); }
+            to {opacity:1;transform : translateY(0%); }
+                        }
+.slider {
+                 animation-name : myframe;
+                animation-duration : 2s; visibility :visible;
+             } 
+ 
+                 
+</style>
+<script>
+
+$(document).ready(function(){
+                                   $(window).scroll(function() {
+                                                       $(".er").each(function(){    var winTop = $(window).scrollTop();
+                                                           var pos = $(".er").offset().top;
+                                                           if ( pos < winTop +800 )
+                                                                               {  
+                                                                                   $(".er").addClass("slider");
+                                                                               };});
+                                                  });
+                               $("#ti").mouseenter(function(){
+                                                            $("#fi").animate({left:'40px'},"fast"); $("#fi").css("transform","scale(0.85,0.85)");
+                                                            $("#gi").animate({left:'20px'},"fast"); $("#gi").css("transform","scale(0.7,0.7)");
+                                                            $("#ti").css("transform","scale(1.5,1.5)");
+                                                  $("#fi").dequeue(); $("#gi").dequeue();   }); 
+                                $("#ti").mouseleave(function(){
+                                                           $("#fi").animate({left:'0px'},"fast"); $("#fi").css("transform","scale(1,1)");
+                                                           $("#gi").animate({left:'0px'},"fast");$("#gi").css("transform","scale(1,1)");
+                                                            $("#ti").css("transform","scale(1.0,1.0)");
+                                                  $("#fi").dequeue();  $("#gi").dequeue();  }); 
+                                                                        
+                               $("#fi").mouseenter(function(){
+                                                            $("#ti").animate({left:'-40px'},"fast"); $("#ti").css("transform","scale(0.85,0.85)");
+                                                            $("#gi").animate({left:'40px'},"fast"); $("#gi").css("transform","scale(0.85,0.85)");
+                                                             $("#fi").css("transform","scale(1.5,1.5)"); 
+                                                  $("#ti").dequeue(); $("#gi").dequeue();   }); 
+                                $("#fi").mouseleave(function(){
+                                                           $("#ti").animate({left:'0px'},"fast"); $("#ti").css("transform","scale(1,1)");
+                                                           $("#gi").animate({left:'0px'},"fast"); $("#gi").css("transform","scale(1,1)");
+                                                            $("#fi").css("transform","scale(1.0,1.0)");
+                                                  $("#ti").dequeue();  $("#gi").dequeue();  }); 
+                             $("#gi").mouseenter(function(){
+                                                            $("#fi").animate({left:'-40px'},"fast"); $("#fi").css("transform","scale(0.85,0.85)");
+                                                            $("#ti").animate({left:'-20px'},"fast");  $("#ti").css("transform","scale(0.7,0.7)");
+                                                             $("#gi").css("transform","scale(1.5,1.5)");
+                                                  $("#fi").dequeue(); $("#ti").dequeue();   }); 
+                                $("#gi").mouseleave(function(){
+                                                           $("#fi").animate({left:'0px'},"fast"); $("#fi").css("transform","scale(1,1)");
+                                                           $("#ti").animate({left:'0px'},"fast"); $("#ti").css("transform","scale(1,1)");
+                                                            $("#gi").css("transform","scale(1.0,1.0)");
+                                                  $("#fi").dequeue();  $("#ti").dequeue();  }); 
+                          
+                              $("#au").on("click",function(){
+                                                                                      $("#pb").slideToggle("slow");
+                                                                                 }) ;
+                             $("[href='#1']").on({
+                                                                     click:function(event){
+                                                                              event.preventDefault();
+                                                                                    event.stopPropagation();                 
+                                                                                                         },
+                                                                     mouseenter:function(e)
+                                                                   {  
+                                                                       $(this).next('ul').show();$(this).find("#CT").animate({right: '9px'});    $(this).find("#CT").dequeue();
+                                                                       $(this).next('ul').on({mouseenter:function(e){
+                                                                                                                                         $(this).show();           $(this).prev().find("#CT").animate({right: '9px'});
+                                                                                                                                           e.stopPropagation();
+                                                                                                                                          e.preventDefault();
+                                                                                                                                         $(this).prev().find("#CT").dequeue();
+                                                                                                                                   },
+                                                                                                 mouseleave:function(e){
+                                                                                                                                                $(this).hide();$(this).prev().find("#CT").animate({right: '0px'});
+                                                                                                                                           e.stopPropagation();
+                                                                                                                                          e.preventDefault();  $(this).prev("li").find("#CT").dequeue();
+                                                                                                                                   }
+                                                                                                } );
+                                                                        e.preventDefault();
+                                                                  },
+                                                                 mouseleave:function(e)
+                                                                  {  
+                                                                       $(this).next('ul').hide();;$(this).find("#CT").animate({right: '0px'});
+                                                                        e.stopPropagation();
+                                                                        e.preventDefault(); $(this).find("#CT").dequeue();
+                                                                  }      });
+                         
+                           
+                   $(document).ready(function(){
+                                      $(document).scroll(function(){if($(window).scrollTop()  < 125){    
+                                                      
+                                                         $("#ww").slideUp(200);
+                                                    $("#11").clearQueue();
+                                                      }
+                                                       else {  $("#ww").slideDown(200);
+                                                             $("#11").dequeue();$("#11").clearQueue();
+                                                            }   }) ; 
+                       
+                                                           
+                          });
+ });
+
+
+</script>
+</head>
+
+<body >
+
+<div class="container-fluid">
+            <div class="row" id="header">
+                  <div id="m4n" data-anijs="if: click, do: swing animated"> <div class="col-md-12" style="text-align:center;background-color:#0069AF;padding:20px;font-size:60px;">
+                       <span style="font-variant:small-caps;font-style:italic;font-weight:bold;color:white" id="st" >
+                            <span class="animated shake">   <img class="img-circle"  src="logo.jpg" style="width:60px;height:60px" >  </span>   
+							<span class="animated zoomIn">  <span style="font-family:myfont1">Notes Gallery</span></span>
+                        </span></div></div>
+                   </div>
+  </div>    
+     
+<nav class="navbar navbar-default" style="opacity:0.95;background-color:#0069AF;border:none">
+  <div class="container-fluid">
+           <div class="navbar-header">
+                <div class="navbar-brand active" style="background-color:#0069AF;color:white">
+                     <span class="" id="st">
+                           <i>NotesGallary</i>
+                     </span>
+                </div>
+          </div>
+        <ul class="nav navbar-nav" style="background-color:#f91414;color:white">
+            <li class="" style="background-color:#f91414;color:white">
+                <a href="file:///C:/Users/MY%20HP/OneDrive/Pictures/Documents/notesgallary.html#h" style="background-color:#0069AF;color:white">
+                           <span class="glyphicon glyphicon-home"></span> Home
+                </a>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle button hvr-underline-from-center" data-toggle="dropdown" href="#h" style="background-color:#0069AF;color:white">
+                          <div > First Year Courses<span class="caret"></span></div>
+                </a>
+               <ul class="dropdown-menu">
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0a096U1loUm1xbEU&usp=sharing" target="_blank">CHM 102</a></li>
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0bE5OU1NTaDJ4QTg&usp=sharing" target="_blank">ESC 101</a></li>
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0dUdCS0M4X29RZE0&usp=sharing" target="_blank">LIF 101</a></li>
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0MUtLbHgtWXBVZ1E&usp=sharing" target="_blank">MTH 101</a></li>
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0Qy1aZVBqUTU0ZDA&usp=sharing"   target="_blank">MTH 102</a></li>
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0NG1mZy1teFpYTHc&usp=sharing"  target="_blank">PHY 102</a></li>
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0bVZ0UDBqX0pTZTA&usp=sharing" target="_blank">PHY 103</a></li>
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0UlhjUXp2TkF3b1k&usp=sharing" target="_blank">TA 101</a></li>
+               </ul>
+           </li>
+               <li class="dropdown">
+                <a class="dropdown-toggle button hvr-underline-from-center" data-toggle="dropdown" href="#h" style="background-color:#0069AF;color:white">
+                          Second year courses<span class="caret"></span>
+                </a>
+               <ul class="dropdown-menu">
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0VEw4RzZPNzNjWGM&usp=sharing" target="_blank">COM 200</a></li>
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0LWFOdENULWJrTk0&usp=sharing" target="_blank">ESC 201</a></li>
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0eWxocWNoNmhkQk0&usp=sharing" target="_blank">TA 201</a></li>
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0WHpERXhrWks2WmM&usp=sharing"  target="_blank">TA 202</a></li>
+               </ul>
+           </li>
+               <li class="dropdown">
+                <a class="dropdown-toggle button hvr-underline-from-center" data-toggle="dropdown" href="#h" style="background-color:#0069AF;color:white">
+                         ESO's<span class="caret"></span>
+                </a>
+               <ul class="dropdown-menu">
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0UTFoa2xFc0s1WTg&usp=sharing" target="_blank">ESO 201</a></li>
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0Wk9xWExFaXc3VWs&usp=sharing" target="_blank">ESO 202</a></li>
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0a0d2OTNpbkJLWE0&usp=sharing" target="_blank">ESO 203</a></li>
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0NW1udVRSOGd5ZzQ&usp=sharing"  target="_blank">ESO 204</a></li>
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0d3FhTllCVUx5Ylk&usp=sharing"  target="_blank">ESO 205</a></li>
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0WTUzTVBOdkFBb0E&usp=sharing" target="_blank">ESO 206</a></li>
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0ZmhxT0NkMmpjXzg&usp=sharing"  target="_blank">ESO 207</a></li>
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0TGxZMWJvQ0FjcGs&usp=sharing" target="_blank">ESO 208</a></li>
+                   <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0c29YMUJqSU0zaHM&usp=sharing" target="_blank">ESO 209</a></li>
+               </ul>
+           </li>
+             <li class="dropdown">
+                <a class="dropdown-toggle button hvr-underline-from-center" data-toggle="dropdown" href="#h" style="background-color:#0069AF;color:white">
+                         SO's<span class="caret"></span>
+                </a>
+               <ul class="dropdown-menu">
+                  <li class="disabled"><a href="#ta201">CSO 201</a></li>
+                  <li class="disabled"><a href="#esc201">CSO 202</a></li>
+                  <li><a href="https://drive.google.com/drive/folders/0B3k8uWdXFUA0X2xGMzdOYVl6aUU?usp=sharing" target="_blank">MSO 201</a></li>
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0WE92VFFwZVVqVWs&usp=sharing" target="_blank">MSO 202</a></li>
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0aTFGNWRXb2cyYkk&usp=sharing"   target="_blank">MSO 203</a></li>
+                  <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0TmN1emhEV1luejQ&usp=sharing"  target="_blank">PSO 201</a></li>
+               </ul>
+           </li>
+           <li class="dropdown"><a class="dropdown-toggle button hvr-underline-from-center" data-toggle="dropdown" href="#h" style="background-color:#0069AF;color:white">Departmental courses<span class="caret"></span></a>
+                     <ul class="dropdown-menu">
+                                      <li  style="position:relative" class="dropdown disabled" ><a href="#1" id="depart" class="dropdown-toggle" data-toggle="dropdown">AE<span class="fa fa-caret-right" id="CT" style="position:absolute;right:0"></span></a>
+                                                           <ul class="dropdown-menu"  id="ee"   style="top:0;left:100%;margin-top:-1px">
+                                                                           <li class="dropdown-header" style="text-align:center;background-color:#4caf50;padding:0px;font-weight:bold;color:white"><span>AE</span></li>
+                                                                           
+                                                            </ul></li>
+                                     <li   style="position:relative" class="dropdown" ><a href="#1" id="depart1" class="dropdown-toggle" data-toggle="dropdown">BSBE<span id="CT" class="fa fa-caret-right" style="position:absolute;right:0"></span></a>
+                                                           <ul class="dropdown-menu"  id="ee"   style="top:0;left:100%;margin-top:-1px">
+                                                                           <li class="dropdown-header" style="text-align:center;background-color:#4caf50;padding:0px;font-weight:bold;color:white"><span>BSBE</span></li>
+                                                                           <li style="border-bottom:1px solid black"><a href="https://drive.google.com/drive/folders/0B3k8uWdXFUA0R0VNUzVxcGxxVDQ?usp=sharing" target="_blank">BSE 221</a></li>
+																		   <li style="border-bottom:1px solid black"><a href="https://drive.google.com/drive/folders/0B3k8uWdXFUA0eFVlOUF0M3Z4MlU?usp=sharing" target="_blank">BSE 222</a></li>
+																		   <li style="border-bottom:1px solid black"><a href="https://drive.google.com/drive/folders/0B3k8uWdXFUA0dVY2cng5Y1ZVVzg?usp=sharing" target="_blank">BSE 311</a></li>
+																		   <li style="border-bottom:1px solid black"><a href="https://drive.google.com/drive/folders/0B3k8uWdXFUA0eGtVUWN6YXVoMDg?usp=sharing" target="_blank">BSE 492</a></li>
+																		    <li style="border-bottom:1px solid black"><a href="https://drive.google.com/drive/folders/0B3k8uWdXFUA0V3VSYXp6RzZQREE?usp=sharing" target="_blank">BSE 656</a></li>
+																		   
+                                                            </ul></li>
+                                     <li class="disabled"><a href="#mec" >CHE</a></li>
+                                     <li class="disabled"><a href="#mec" >CHM</a></li>
+                                     <li class="disabled"><a href="#mec" >CE</a></li> 
+                                     <li class="disabled"><a href="#mec" >CSE</a></li> 
+                                     <li style="position:relative"><a href="#1" class="dropdown-toggle" data-toggle="dropdown" >EE<span id="CT"  class="fa fa-caret-right" style="position:absolute;right:0"></span></a>
+                                                        <ul class="dropdown-menu"  id="ee"   style="top:0;left:100%;margin-top:-1px;">
+                                                                           <li class="dropdown-header" style="text-align:center;background-color:#4caf50;padding:0px;font-weight:bold;color:white"><span>EE</span></li>
+                                                                           <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0UVNLVDQ0ejc1YVE&usp=sharing" target="_blank">EE 200</a></li>
+                                                                            <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0SnBqWnA0VkFpa2M&usp=sharing" target="_blank">EE 210</a></li>
+                                                                            <li style="" ><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0dEh4Vk1lZWNRWk0&usp=sharing" target="_blank">EE 250</a></li>
+                                                                            <li style="border-bottom:1px sloid black" ><a href="https://drive.google.com/drive/folders/0B3k8uWdXFUA0ZUxjRmJyZTJwbDA?usp=sharing" target="_blank">EE 320</a></li>
+																			<li style="border-bottom:1px sloid black" ><a href="https://drive.google.com/drive/folders/0B3k8uWdXFUA0SGFTZlkxYTZUMFk?usp=sharing" target="_blank">EE 330</a></li>
+																			<li style="border-bottom:1px sloid black" ><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0dGtWSXU5ZFZFaDg&usp=sharing" target="_blank">EE 340</a></li>
+																			<li style="border-bottom:1px sloid black" ><a href="https://drive.google.com/drive/folders/0B3k8uWdXFUA0SXJ1eXhGV1ZqbHM?usp=sharing" target="_blank">EE 370</a></li>
+																			
+															</ul></li> 
+                                         <li style="position:relative"><a href="#1"  class="dropdown-toggle" data-toggle="dropdown" >MSE<span id="CT" class="fa fa-caret-right" style="position:absolute;right:0"></span></a>
+                                                        <ul class="dropdown-menu"  id="ee"   style="top:0;left:100%;margin-top:-1px;">
+                                                                           <li class="dropdown-header" style="text-align:center;background-color:#4caf50;padding:0px;font-weight:bold;color:white"><span>MSE</span></li>
+                                                                           <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0SDNCVEtPcmZqWmM&usp=sharing" target="_blank">MSE201</a></li>
+                                                                            <li><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0VXRFQUJYZDQzeG8&usp=sharing" target="_blank">MSE 202</a></li>
+                                                                             <li class="disabled"><a href="#ee200">MSE 203</a></li>
+                                                                            <li style="border-bottom:1px solid black" class="disabled"><a href="#ee200">MSE 204</a></li>
+                                                            </ul></li> 
+                                     <li class="disabled"><a href="#mec" >MTH</a></li> 
+                                     <li   style="position:relative" class="dropdown" ><a href="#1" id="depart1" class="dropdown-toggle" data-toggle="dropdown">ME<span id="CT" class="fa fa-caret-right" style="position:absolute;right:0"></span></a>
+                                                           <ul class="dropdown-menu"  id="ee"   style="top:0;left:100%;margin-top:-1px">
+                                                                           <li class="dropdown-header" style="text-align:center;background-color:#4caf50;padding:0px;font-weight:bold;color:white"><span>ME</span></li>
+                                                                           <li style="border-bottom:1px solid black"><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0OEJ0d242RlRqSzg&usp=sharing" target="_blank">ME 231</a></li>
+																		   <li style="border-bottom:1px solid black"><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0UFNkZGdyRTI1SzQ&usp=sharing" target="_blank">ME 251</a></li>
+																		   <li style="border-bottom:1px solid black"><a href="https://drive.google.com/folderview?id=0B3k8uWdXFUA0dzB0ME1kUFRjZ3c&usp=sharing" target="_blank">ME 222</a></li>
+                                                            </ul></li>
+                                    <li class="disabled"><a href="#mec">PHY</a></li>
+                        </ul>
+                 
+          </li>
+        </ul>
+    
+  </div> 
+</nav>
+
+
+
+<div class="container-fluid">
+<div id="mn" data-anijs="if: click, do: swing animated">
+<div class="container"> <pre  style="font-size:20px">
+<br> &nbsp;"<span style="font-family:myfont2;word-spacing:15px"><em><b>Everything should be made as simple as possible but not simpler</b></em></span>"
+                                                                        &nbsp; -<span style="font-family:myfont;">Albert Einstein</span>
+<blockquote style="font-family:myfont" >Keeping this in mind, we tried our best to help you out with all the possible resources in the form of notes, assignment and 
+past papers. But as the saying says it cannot be made much simpler, an effort from your side is necessary for a successful  
+performance in the examinations.</blockquote>
+<blockquote style="font-family:myfont">Remember<br>
+"<span style="font-family:myfont;word-spacing:15px"><b><em>The future belongs to those who prepare for it today</em></b></span>"</blockquote>
+<blockquote  style="font-family:myfont;">Never give up and give your best. We can't help you unless you help yourself.<br>
+"<span style="font-family:myfont;word-spacing:15px"><b><em>As you think so shall you become</em></b></span>"</blockquote>
+
+</pre></div>
+</div>
+<div class="container">
+<div class="panel panel-info">
+<div class="panel-heading" style="text-align:center" id="au" >Contact us</div>
+<div class="panel-body" id="pb" style="display:none">
+<div class="row">
+<div class="col-md-4" >
+<div class="thumbnail">
+<img   class="img-circle" src="vimal.jpg"   style="width:200px;height:250px"   id="vi">
+<div  id="cert" style="text-align:center;font-size:20px" class="er"><i><b>Vimal Kumar Meena</i></b>
+<br><b><em>EE Department</em></b>
+<br><b><em> 3<sup>rd</sup> year</em></b>
+ <a href="https://www.facebook.com/profile.php?id=100008376616616" target="_blank"><span class="fa fa-facebook-square fa-lg"></span></a></div>
+</div></div>
+<div class="col-md-4" >
+<div class="thumbnail" >
+<img   class="img-circle" src="kul.jpg"  style="width:200px;height:250px"     id="kk">
+<div  id="cert" style="text-align:center;font-size:20px" class="er"><i><b>Kuldeep Singh</i></b>
+<br><b><em>BSBE Department</em></b>
+<br><b><em> 3<sup>rd</sup> year</em></b>
+ <a href="https://www.facebook.com/profile.php?id=100001445522227&__mref=message_bubble" target="_blank"><span class="fa fa-facebook-square fa-lg"></span></a></div>
+</div></div>
+<div class="col-md-4" >
+<div class="thumbnail">
+<img   class="img-circle" src="ved.jpg"    style="width:200px;height:250px"      id="kk">
+<div  id="cert" style="text-align:center;font-size:20px" class="er"><i><b>Vedprakash Mishra</i></b>
+<br><b><em>MSE Department</em></b>
+<br><b><em> 3<sup>rd</sup> year</em></b>
+ <a href="https://www.facebook.com/profile.php?id=100007152226057&sk=about&__mref=message_bubble" target="_blank"><span class="fa fa-facebook-square fa-lg"></span></a></div>
+</div></div></div>
+</div> </div></div></div>
+
+ 
+<div id="11" >
+  <nav class="navbar navbar-fixed-bottom" style="opacity:0.8;background-color:white" >
+                  
+                     
+                          <div class="row" style="padding-bottom:15px;"">
+                                      <div class="col-md-5 col-xs-3 col-sm-4"  >
+                                      </div>
+                                      <div class="col-md-2 col-xs-6 col-sm-5">
+                                      <div class="row">
+                                         <div class="col-md-4 col-sm-4 col-xs-4">
+                                                <a href="https://twitter.com/Notes_Gallery"  id="twitter" target="_blank">
+                                                <span id="ti" class="fa-stack fa-2x" onmouseover='chgcl("tw","cirl1","fa-inverse fa-twitter  "," fa-circle fa-stack-2x ")' onmouseout="chgcl('tw','cirl1','fa-twitter ',' fa-circle-thin fa-stack-2x ')"   >
+                                                      <span id="cirl1" class="fa fa-circle-thin fa-stack-2x " ></span> 
+                                                    <span  class="fa fa-twitter fa-stack-1x " id="tw" ></span> 
+                                                </span></a>
+                                            
+                                         </div>
+                                         <div class="col-md-4 col-sm-4 col-xs-4">
+                                                <a id="fb" href="https://www.facebook.com/NotesGallery/?skip_nax_wizard=true&__mref=message_bubble"  target="_blank">
+                                               <span id="fi" class="fa-stack fa-2x"  onmouseover='chgcl("fd","cirl2","fa-inverse fa-facebook  "," fa-circle fa-stack-2x")' onmouseout="chgcl('fd','cirl2','fa-facebook ',' fa-circle-thin fa-stack-2x ')">
+                                                     <span id="cirl2" class="fa fa-circle-thin fa-stack-2x " ></span> 
+                                                    <span  class="fa fa-facebook fa-stack-1x " id="fd" ></span> 
+                                                </span></a>
+                                               
+                                         </div>
+                                         <div class="col-md-4 col-sm-4 col-xs-4">
+                                                 <a id="gp" href="http://www.googleplus.com">
+                                               <span id="gi" class="fa-stack fa-2x"  onmouseover='chgcl("g+","cirl3","fa-inverse fa-google-plus "," fa-circle fa-stack-2x")' onmouseout="chgcl('g+','cirl3','fa-google-plus ',' fa-circle-thin fa-stack-2x ')">
+                                                     <span id="cirl3" class="fa fa-circle-thin fa-stack-2x " ></span> 
+                                                    <span  class="fa fa-google-plus fa-stack-1x " id="g+" ></span> 
+                                                </span></a>
+                                               
+                                               
+                                         </div>
+                         </div>
+                         </div>
+            
+  </nav>
+   
+</div>
+<div id="ww" style="position:fixed;display:none;right:20px;bottom:10px;z-index:5500;padding:10px;background-color:#525252;box-shadow: 2px 3px 15px black"  >
+              <a href="#header"><span class="fa fa-chevron-up fa-2x fa-inverse" style="background-color:transparent;border-radius:40px 40px 0px 0px"></span></a></div>
+<div><br><br></div>
+
+<a href="#">
+<img src="http://www.easycounter.com/counter.php?vimalk"
+border="0" alt="Web Counter"></a>
+<div   style="position:relative;box-shadow:2px 2px 14px black;" class="er">
+<div class="panel panel-primary" >
+<div class="panel-footer" style="text-align:center">&copy; Notes Gallery</div></div> </div>
+<div style="background-color:transparant">
+<br><br><br></div>
+<script> 
+{
+     function chgcl(icon,circle,y,z){
+                                         document.getElementById(circle).className="fa  "+z ;
+                                            document.getElementById(icon).className="fa  fa-stack-1x "+y ;
+                                         
+                                    };
+}
+</script>
+
+</body>
+</html>
